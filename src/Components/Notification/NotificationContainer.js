@@ -3,7 +3,7 @@ import NotificationPresenter from './NotificationPresenter';
 
 class NotificationContainer extends Component {
   render() {
-    return <NotificationPresenter />;
+    return <NotificationPresenter {...this.props} />;
   }
 }
 

@@ -52,28 +52,24 @@ const Button = styled.button`
   }
 `;
 
-const NotificationPresenter = ({ id, text, seen }) => (
-  <Notification>
-    <Flex alignCenter justifyBetween>
-      <Title>
-        <Store.Consumer>{(store) => store.message}</Store.Consumer>
-      </Title>
-      <FlexItem>
-        <Store.Consumer>
-          {(store) => (
-            <Button success seen={seen} onClick={store.changeMessage}>
-              <FontAwesome name="check" />
-            </Button>
-          )}
-        </Store.Consumer>
-        <Button danger>
-          <FontAwesome name="times" />
-        </Button>
-      </FlexItem>
-    </Flex>
-  </Notification>
-);
-
+const NotificationPresenter = ({ id, seen, text }) => {
+  //console.log(text);
+  return (
+    <Notification>
+      <Flex alignCenter justifyBetween>
+        <Title>{text}</Title>
+        <FlexItem>
+          <Button success seen={seen} onClick={() => {}}>
+            <FontAwesome name="check" />
+          </Button>
+          <Button danger seen={seen} onClick={() => {}}>
+            <FontAwesome name="times" />
+          </Button>
+        </FlexItem>
+      </Flex>
+    </Notification>
+  );
+};
 // NotificationPresenter.propTypes = {
 //   text: PropTypes.string.isRequired,
 //   seen: PropTypes.bool.isRequired,
