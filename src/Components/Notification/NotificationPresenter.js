@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+
 import styled from 'styled-components';
 import Flex, { FlexItem } from 'styled-flex-component';
 import FontAwesome from 'react-fontawesome';
+import { Store } from 'store';
 
 const Notification = styled.div`
   background-color: white;
@@ -54,7 +55,9 @@ const Button = styled.button`
 const NotificationPresenter = ({ id, text, seen }) => (
   <Notification>
     <Flex alignCenter justifyBetween>
-      <Title>{text}</Title>
+      <Title>
+        <Store.Consumer>{(store) => JSON.stringify(store)}</Store.Consumer>
+      </Title>
       <FlexItem>
         <Button success>
           <FontAwesome name="check" />
@@ -67,10 +70,10 @@ const NotificationPresenter = ({ id, text, seen }) => (
   </Notification>
 );
 
-NotificationPresenter.propTypes = {
-  text: PropTypes.string.isRequired,
-  seen: PropTypes.bool.isRequired,
-  id: PropTypes.number.isRequired,
-};
+// NotificationPresenter.propTypes = {
+//   text: PropTypes.string.isRequired,
+//   seen: PropTypes.bool.isRequired,
+//   id: PropTypes.number.isRequired,
+// };
 
 export default NotificationPresenter;
