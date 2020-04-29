@@ -52,10 +52,17 @@ const Button = styled.button`
 `;
 
 const NotificationPresenter = ({ id, text, seen }) => (
-  <Notification seen={seen}>
+  <Notification>
     <Flex alignCenter justifyBetween>
       <Title>{text}</Title>
-      <FlexItem></FlexItem>
+      <FlexItem>
+        <Button success>
+          <FontAwesome name="check" />
+        </Button>
+        <Button danger>
+          <FontAwesome name="times" />
+        </Button>
+      </FlexItem>
     </Flex>
   </Notification>
 );

@@ -3,7 +3,7 @@ import HeaderPresenter from './HeaderPresenter';
 
 class HeaderContainer extends Component {
   //   static propTypes = {};
-  state = {};
+  // state = {};
   render() {
     return <HeaderPresenter />;
   }

@@ -8,7 +8,9 @@ const AppPresenter = () => (
   <>
     <GlobalStyles />
     <Header />
-    <Flex alignCenter full column></Flex>
+    <Flex alignCenter full column>
+      <Notification />
+    </Flex>
   </>
 );
 
