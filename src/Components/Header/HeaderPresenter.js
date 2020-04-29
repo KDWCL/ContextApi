@@ -50,6 +50,7 @@ const getUnseen = (notifications) => {
     if (notifications[key].seen === false) {
       unseen.push(notifications[key]);
     }
+    //console.log(unseen);
   });
   return unseen.length;
 };

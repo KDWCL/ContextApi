@@ -11,7 +11,7 @@ const AppPresenter = () => (
       <Store.Consumer>
         {(store) => {
           return Object.keys(store.notifications).map((key) => {
-            console.log(key);
+            //console.log(key);
             return (
               <Notification
                 key={store.notifications[key].id}

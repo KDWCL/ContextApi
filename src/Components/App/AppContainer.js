@@ -3,17 +3,38 @@ import AppPresenter from './AppPresenter';
 import { Store } from 'store';
 
 class AppContainer extends Component {
+  _deleteNotification = (id) => {
+    this.setState((currentState) => {
+      console.log(currentState.notifications[id]);
+      const newState = delete currentState.notifications[id];
+      return newState;
+    });
+  };
+  _seeNotification = (id) => {
+    this.setState((currentState) => {
+      return {
+        ...currentState,
+        notifications: {
+          ...currentState.notifications,
+          [id]: {
+            ...currentState.notifications[id],
+            seen: true,
+          },
+        },
+      };
+    });
+  };
   state = {
     notifications: {
       '1': {
         id: 1,
         text: 'Something',
-        seen: true,
+        seen: false,
       },
       '2': {
         id: 2,
         text: 'Something else',
-        seen: true,
+        seen: false,
       },
       '3': {
         id: 3,
@@ -21,6 +42,8 @@ class AppContainer extends Component {
         seen: false,
       },
     },
+    deleteNotification: this._deleteNotification,
+    seeNotification: this._seeNotification,
   };
 
   render() {
