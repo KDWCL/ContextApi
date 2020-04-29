@@ -56,12 +56,16 @@ const NotificationPresenter = ({ id, text, seen }) => (
   <Notification>
     <Flex alignCenter justifyBetween>
       <Title>
-        <Store.Consumer>{(store) => JSON.stringify(store)}</Store.Consumer>
+        <Store.Consumer>{(store) => store.message}</Store.Consumer>
       </Title>
       <FlexItem>
-        <Button success>
-          <FontAwesome name="check" />
-        </Button>
+        <Store.Consumer>
+          {(store) => (
+            <Button success seen={seen} onClick={store.changeMessage}>
+              <FontAwesome name="check" />
+            </Button>
+          )}
+        </Store.Consumer>
         <Button danger>
           <FontAwesome name="times" />
         </Button>
